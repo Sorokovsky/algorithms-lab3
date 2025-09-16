@@ -17,13 +17,14 @@ def sort_bingo_increasing(array: list) -> list:
     result = [item for item in array]
     iterations = 0
     minimum_index = get_minimum_index(result)
+    iterations += len(result)
     result = swap_items(result, minimum_index, 0)
     print("Кількість ітерацій за алгоритмом вставки по спаданню", iterations, sep=": ")
     return result
 
 def get_minimum_index(array: list) -> int:
     minimum_index = 0
-    for i in range(len(array) - 1):
+    for i in range(len(array)):
         if array[i] < array[minimum_index]:
             minimum_index = i
     return minimum_index
