@@ -1,19 +1,16 @@
-import time
+from algorithms.insertion_sort import InsertionSort
 
-from algorithms import *
-from random import randint
+
+def is_descending(first: int, second: int) -> bool:
+    return first < second
 
 def main():
-    variant = 11
-    minimum = 10
-    maximum = 1000
-    count = maximum - variant * minimum
-    array = [randint(minimum, maximum) for _ in range(count)]
-    print("Вхідний масив", array, sep=": ")
-    start_time = time.time()
-    print("Масив відсортований алгоритмом вставки по спаданню", sort_insert_descending(array), sep=": ")
-    end_time = time.time()
-    print("Затрачено секунд на алгоритм вставки по спаданню", end_time - start_time, sep=": ")
+    array = [3, 2, 1, 5, 4]
+    print(array)
+    algorithm = InsertionSort()
+
+    result = algorithm.sort(array, is_descending)
+    print(result)
 
 if __name__ == '__main__':
     main()
