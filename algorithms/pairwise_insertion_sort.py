@@ -12,13 +12,10 @@ class PairwiseInsertionSort(SortingAlgorithm):
         count = len(result)
 
         for i in range(0, count, 2):
-            # Сортуємо пару між собою
             if i + 1 < count:
                 self._increment_iteration()
                 if not is_order_correct(result[i + 1], result[i]):
                     result[i], result[i + 1] = result[i + 1], result[i]
-
-            # Вставляємо пару в відсортовану частину
             self._insert_pair(result, i, is_order_correct)
 
         return result
