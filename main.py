@@ -2,20 +2,23 @@ from random import randint
 
 from algorithms.base import SortingAlgorithm
 from algorithms.insertion_sort import InsertionSort
+from algorithms.pairwise_insertion_sort import PairwiseInsertionSort
 
+algorithms: list[SortingAlgorithm] = [InsertionSort(), PairwiseInsertionSort()]
 
 def is_descending(first: int, second: int) -> bool:
     return first < second
 
 
-algorithms: list[SortingAlgorithm] = [InsertionSort()]
-
-def main():
+def generate_array() -> list[int]:
     variant = 11
     minimum = 10
     maximum = 1000
     count = maximum - variant * minimum
-    array = [randint(minimum, maximum) for _ in range(count)]
+    return [randint(minimum, maximum) for _ in range(count)]
+
+def main():
+    array = generate_array()
     print("Вхідний масив", array)
     for algorithm in algorithms:
         result = algorithm.sort(array, is_descending)
