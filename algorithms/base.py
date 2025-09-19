@@ -35,12 +35,16 @@ class SortingAlgorithm(abc.ABC):
         return result
 
     @abc.abstractmethod
+    def get_name(self) -> str:
+        pass
+
+    @abc.abstractmethod
     def _sort(self, array: list[int], is_order_correct: Callable[[int, int], bool]) -> list[int]:
         pass
 
     @staticmethod
-    def swap(array: list[int], first_index: int, second_index: int) -> list[int]:
-        result = [item for item in array]
+    def _swap(array: list[int], first_index: int, second_index: int) -> list[int]:
+        result = array.copy()
         temp = result[first_index]
         result[first_index] = result[second_index]
         result[second_index] = temp
