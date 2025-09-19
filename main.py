@@ -3,8 +3,9 @@ from random import randint
 from algorithms.base import SortingAlgorithm
 from algorithms.insertion_sort import InsertionSort
 from algorithms.pairwise_insertion_sort import PairwiseInsertionSort
+from algorithms.shell_sort import ShellSort
 
-algorithms: list[SortingAlgorithm] = [InsertionSort(), PairwiseInsertionSort()]
+algorithms: list[SortingAlgorithm] = [InsertionSort(), PairwiseInsertionSort(), ShellSort()]
 
 def is_descending(first: int, second: int) -> bool:
     return first < second
