@@ -12,6 +12,7 @@ from algorithms.pancake_sort import PancakeSort
 from algorithms.selection_sort import SelectionSort
 from algorithms.shaker_sort import ShakerSort
 from algorithms.shell_sort import ShellSort
+from algorithms.stupid_sort import StupidSort
 
 algorithms: list[SortingAlgorithm] = [
     InsertionSort(),
@@ -25,6 +26,7 @@ algorithms: list[SortingAlgorithm] = [
     PancakeSort(),
     BubleSort(),
     ShakerSort(),
+    StupidSort()
 ]
 
 def is_descending(first: int, second: int) -> bool:
