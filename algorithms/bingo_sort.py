@@ -9,21 +9,20 @@ class BingoSort(SortingAlgorithm):
 
     def _sort(self, array: list[int], is_order_correct: Callable[[int, int], bool]) -> list[int]:
         result = array.copy()
-        count = len(result)
-        right = count - 1
+        right = len(result) - 1
         while right > 0:
             current_index = 0
+            indices = [0]  # Зберігаємо індекси кандидатів на максимум
             for index in range(1, right + 1):
                 self._increment_iteration()
                 if is_order_correct(result[index], result[current_index]):
                     current_index = index
-            current_item = result[current_index]
-            index = 0
-            while index <= right:
-                self._increment_iteration()
-                if result[index] == current_item:
+                    indices = [index]
+                elif result[index] == result[current_index]:
+                    indices.append(index)
+            # Переміщуємо всі входження максимального значення
+            for index in reversed(indices):
+                if index <= right:
                     result = self._swap(result, index, right)
                     right -= 1
-                else:
-                    index += 1
         return result
