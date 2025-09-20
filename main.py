@@ -10,6 +10,7 @@ from algorithms.insertion_sort import InsertionSort
 from algorithms.pairwise_insertion_sort import PairwiseInsertionSort
 from algorithms.pancake_sort import PancakeSort
 from algorithms.selection_sort import SelectionSort
+from algorithms.shaker_sort import ShakerSort
 from algorithms.shell_sort import ShellSort
 
 algorithms: list[SortingAlgorithm] = [
@@ -22,7 +23,8 @@ algorithms: list[SortingAlgorithm] = [
     BingoSort(),
     CycleSort(),
     PancakeSort(),
-    BubleSort()
+    BubleSort(),
+    ShakerSort(),
 ]
 
 def is_descending(first: int, second: int) -> bool:
