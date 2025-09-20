@@ -4,6 +4,7 @@ from algorithms.base import SortingAlgorithm
 from algorithms.binary_insertion_sort import BinaryInsertionSort
 from algorithms.bingo_sort import BingoSort
 from algorithms.buble_sort import BubleSort
+from algorithms.comb_sort import CombSort
 from algorithms.cycle_sort import CycleSort
 from algorithms.double_selection_sort import DoubleSelectionSort
 from algorithms.gnome_sort import GnomeSort
@@ -30,6 +31,7 @@ algorithms: list[SortingAlgorithm] = [
     ShakerSort(),
     GnomeSort(),
     OddEvenSort(),
+    CombSort(),
     StupidSort(),
 ]
 
