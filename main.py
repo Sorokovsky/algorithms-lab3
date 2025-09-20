@@ -15,6 +15,6 @@ def main():
     analyzer.add_algorithm(CombSort(), is_descending)
     analyzer.run(array)
     analyzer.print_statistics()
-
+    analyzer.show_statistics_in_histograms()
 if __name__ == '__main__':
     main()
