@@ -8,6 +8,7 @@ from algorithms.cycle_sort import CycleSort
 from algorithms.double_selection_sort import DoubleSelectionSort
 from algorithms.gnome_sort import GnomeSort
 from algorithms.insertion_sort import InsertionSort
+from algorithms.odd_even_sort import OddEvenSort
 from algorithms.pairwise_insertion_sort import PairwiseInsertionSort
 from algorithms.pancake_sort import PancakeSort
 from algorithms.selection_sort import SelectionSort
@@ -27,8 +28,9 @@ algorithms: list[SortingAlgorithm] = [
     PancakeSort(),
     BubleSort(),
     ShakerSort(),
-    StupidSort(),
     GnomeSort(),
+    OddEvenSort(),
+    StupidSort(),
 ]
 
 def is_descending(first: int, second: int) -> bool:
