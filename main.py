@@ -3,6 +3,7 @@ from random import randint
 from algorithms.base import SortingAlgorithm
 from algorithms.binary_insertion_sort import BinaryInsertionSort
 from algorithms.bingo_sort import BingoSort
+from algorithms.buble_sort import BubleSort
 from algorithms.cycle_sort import CycleSort
 from algorithms.double_selection_sort import DoubleSelectionSort
 from algorithms.insertion_sort import InsertionSort
@@ -21,6 +22,7 @@ algorithms: list[SortingAlgorithm] = [
     BingoSort(),
     CycleSort(),
     PancakeSort(),
+    BubleSort()
 ]
 
 def is_descending(first: int, second: int) -> bool:
