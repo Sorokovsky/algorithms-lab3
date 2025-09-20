@@ -1,6 +1,7 @@
 from typing import Callable
 
 import matplotlib.pyplot as pyplot
+import numpy as np
 
 from algorithms.base import SortingAlgorithm
 from analysers.analyzer_node import AnalyzerNode
@@ -28,28 +29,27 @@ class SortingAlgorithmsAnalyzer:
             print(f"Виконано за {round(node.algorithm.get_processing_time(), 3)} секунд")
 
     def show_statistics_in_histograms(self):
+        names = [node.algorithm.get_name() for node in self._nodes]
+        times = [node.algorithm.get_processing_time() for node in self._nodes]
+        iterations = [node.algorithm.get_iterations_count() for node in self._nodes]
         pyplot.figure(figsize=(12, 5))
         colors = ["skyblue", "lightgreen", "lightpink"]
         pyplot.subplot(1, 2, 1)
-        for index, node in enumerate(self._nodes):
-            algorithm = node.algorithm
-            pyplot.hist(algorithm.get_processing_time(), bins=10, alpha=0.5, color=colors[index],
-                        label=algorithm.get_name(), edgecolor="black")
-        pyplot.title("Гістограма за часом")
+        x = np.arange(len(names))
+        pyplot.bar(x, times, alpha=0.5, color=colors[:len(names)], edgecolor="black")
+        pyplot.xticks(x, names, rotation=45)
+        pyplot.title("Стовпчикова діаграма за часом")
         pyplot.xlabel("Назва алгоритму")
         pyplot.ylabel("Час (с)")
-        pyplot.legend()
         pyplot.subplot(1, 2, 2)
-        for index, node in enumerate(self._nodes):
-            algorithm = node.algorithm
-            pyplot.hist(algorithm.get_iterations_count(), bins=10, alpha=0.5, color=colors[index],
-                        label=algorithm.get_name(), edgecolor='black')
-        pyplot.title('Гістограма кількості ітерацій')
-        pyplot.xlabel('Назва алгоритму')
-        pyplot.ylabel('Кількість ітерацій')
-        pyplot.legend()
+        pyplot.bar(x, iterations, alpha=0.5, color=colors[:len(names)], edgecolor="black")
+        pyplot.xticks(x, names, rotation=45)
+        pyplot.title("Стовпчикова діаграма кількості ітерацій")
+        pyplot.xlabel("Назва алгоритму")
+        pyplot.ylabel("Кількість ітерацій")
         pyplot.tight_layout()
         pyplot.show()
+
     @staticmethod
     def _default_comparator(first: int, second: int) -> bool:
         return first <= second
