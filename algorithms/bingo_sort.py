@@ -12,7 +12,7 @@ class BingoSort(SortingAlgorithm):
         right = len(result) - 1
         while right > 0:
             current_index = 0
-            indices = [0]  # Зберігаємо індекси кандидатів на максимум
+            indices = [0]
             for index in range(1, right + 1):
                 self._increment_iteration()
                 if is_order_correct(result[index], result[current_index]):
@@ -20,7 +20,6 @@ class BingoSort(SortingAlgorithm):
                     indices = [index]
                 elif result[index] == result[current_index]:
                     indices.append(index)
-            # Переміщуємо всі входження максимального значення
             for index in reversed(indices):
                 if index <= right:
                     result = self._swap(result, index, right)
