@@ -14,7 +14,7 @@ class SelectionSort(SortingAlgorithm):
             extreme_index = i
             for j in range(i + 1, count):
                 self._increment_iteration()
-                if is_order_correct(result[extreme_index], result[j]):
+                if not is_order_correct(result[extreme_index], result[j]):
                     extreme_index = j
             if extreme_index != i:
                 result = self._swap(result, extreme_index, i)

@@ -17,9 +17,9 @@ class DoubleSelectionSort(SortingAlgorithm):
             maximum_index = left
             for i in range(left + 1, right + 1):
                 self._increment_iteration()
-                if not is_order_correct(result[i], result[minimum_index]):
+                if is_order_correct(result[i], result[minimum_index]):
                     minimum_index = i
-                if is_order_correct(result[i], result[maximum_index]):
+                if not is_order_correct(result[i], result[maximum_index]):
                     maximum_index = i
             result[left], result[minimum_index] = result[minimum_index], result[left]
             if maximum_index == left:

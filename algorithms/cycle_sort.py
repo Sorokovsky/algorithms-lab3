@@ -10,14 +10,14 @@ class CycleSort(SortingAlgorithm):
     def _sort(self, array: list[int], is_order_correct: Callable[[int, int], bool]) -> list[int]:
         result = array.copy()
         count = len(result)
-        if count <= 1 or all(is_order_correct(result[i + 1], result[i]) for i in range(count - 1)):
+        if count <= 1 or all(is_order_correct(result[i], result[i + 1]) for i in range(count - 1)):
             return result
         for cycle_start in range(count - 1):
             item = result[cycle_start]
             position = cycle_start
             for index in range(cycle_start + 1, count):
                 self._increment_iteration()
-                if is_order_correct(item, result[index]):
+                if not is_order_correct(item, result[index]):
                     position += 1
             if position == cycle_start:
                 continue
@@ -41,7 +41,7 @@ class CycleSort(SortingAlgorithm):
                 position = cycle_start
                 for index in range(cycle_start + 1, count):
                     self._increment_iteration()
-                    if is_order_correct(item, result[index]):
+                    if not is_order_correct(item, result[index]):
                         position += 1
 
                 while position < count and item == result[position]:

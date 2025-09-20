@@ -19,7 +19,7 @@ class ShellSort(SortingAlgorithm):
             for i in range(gap, count):
                 temp = result[i]
                 j = i
-                while j >= gap and is_order_correct(result[j - gap], temp):
+                while j >= gap and not is_order_correct(result[j - gap], temp):
                     self._increment_iteration()
                     result[j] = result[j - gap]
                     j -= gap

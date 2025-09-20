@@ -25,7 +25,7 @@ class BinaryInsertionSort(SortingAlgorithm):
         while left < right:
             self._increment_iteration()
             middle = (left + right) // 2
-            if is_order_correct(key, array[middle]):
+            if not is_order_correct(key, array[middle]):
                 left = middle + 1
             else:
                 right = middle

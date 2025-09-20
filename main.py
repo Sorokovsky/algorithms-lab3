@@ -7,6 +7,7 @@ from algorithms.cycle_sort import CycleSort
 from algorithms.double_selection_sort import DoubleSelectionSort
 from algorithms.insertion_sort import InsertionSort
 from algorithms.pairwise_insertion_sort import PairwiseInsertionSort
+from algorithms.pancake_sort import PancakeSort
 from algorithms.selection_sort import SelectionSort
 from algorithms.shell_sort import ShellSort
 
@@ -19,10 +20,11 @@ algorithms: list[SortingAlgorithm] = [
     DoubleSelectionSort(),
     BingoSort(),
     CycleSort(),
+    PancakeSort(),
 ]
 
 def is_descending(first: int, second: int) -> bool:
-    return first < second
+    return first >= second
 
 
 def generate_array() -> list[int]:

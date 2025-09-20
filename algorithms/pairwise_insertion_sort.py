@@ -14,7 +14,7 @@ class PairwiseInsertionSort(SortingAlgorithm):
         for i in range(0, count, 2):
             if i + 1 < count:
                 self._increment_iteration()
-                if not is_order_correct(result[i + 1], result[i]):
+                if is_order_correct(result[i + 1], result[i]):
                     result[i], result[i + 1] = result[i + 1], result[i]
             self._insert_pair(result, i, is_order_correct)
 
@@ -31,13 +31,13 @@ class PairwiseInsertionSort(SortingAlgorithm):
             temp_second = None
         j = start_index - 1
         if temp_second is not None:
-            while j >= 0 and not is_order_correct(temp_second, array[j]):
+            while j >= 0 and is_order_correct(temp_second, array[j]):
                 self._increment_iteration()
                 array[j + 2] = array[j]
                 j -= 1
             array[j + 2] = temp_second
         current_j = j if temp_second is not None else start_index - 1
-        while current_j >= 0 and not is_order_correct(temp_first, array[current_j]):
+        while current_j >= 0 and is_order_correct(temp_first, array[current_j]):
             self._increment_iteration()
             array[current_j + 1] = array[current_j]
             current_j -= 1

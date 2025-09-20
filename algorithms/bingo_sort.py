@@ -15,7 +15,7 @@ class BingoSort(SortingAlgorithm):
             indices = [0]
             for index in range(1, right + 1):
                 self._increment_iteration()
-                if is_order_correct(result[index], result[current_index]):
+                if not is_order_correct(result[index], result[current_index]):
                     current_index = index
                     indices = [index]
                 elif result[index] == result[current_index]:
