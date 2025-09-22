@@ -33,17 +33,17 @@ class SortingAlgorithmsAnalyzer:
         times = [node.algorithm.get_processing_time() for node in self._nodes]
         iterations = [node.algorithm.get_iterations_count() for node in self._nodes]
         pyplot.figure(figsize=(12, 5))
-        colors = ["skyblue", "lightgreen", "lightpink"]
+        colors = ["skyblue", "lightgreen", "lightpink", "darkgreen"]
         pyplot.subplot(1, 2, 1)
         x = np.arange(len(names))
-        pyplot.bar(x, times, alpha=0.5, color=colors[:len(names)], edgecolor="black")
-        pyplot.xticks(x, names, rotation=0)
+        pyplot.bar(x, times, alpha=0.5, color="skyblue", edgecolor="black")
+        pyplot.xticks(x, names, rotation=45)
         pyplot.title("Гістограма алгоритмів сортування за часом")
         pyplot.xlabel("Назва алгоритму")
         pyplot.ylabel("Час (с)")
         pyplot.subplot(1, 2, 2)
-        pyplot.bar(x, iterations, alpha=0.5, color=colors[:len(names)], edgecolor="black")
-        pyplot.xticks(x, names, rotation=0)
+        pyplot.bar(x, iterations, alpha=0.5, color="skyblue", edgecolor="black")
+        pyplot.xticks(x, names, rotation=45)
         pyplot.title("Гістограма алгоритмів сортування за кількості ітерацій")
         pyplot.xlabel("Назва алгоритму")
         pyplot.ylabel("Кількість ітерацій")
